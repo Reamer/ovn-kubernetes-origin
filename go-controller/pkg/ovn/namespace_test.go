@@ -260,9 +260,9 @@ var _ = ginkgo.Describe("OVN Namespace Operations", func() {
 				_, err = fakeOvn.controller.joinSwIPManager.ensureJoinLRPIPs(ovntypes.OVNClusterRouter)
 				gomega.Expect(err).NotTo(gomega.HaveOccurred())
 				priovousGwLRPIPs := fakeOvn.controller.getJoinLRPAddresses(node1.Name)
-				gomega.Expect(priovousGwLRPIPs == nil).To(gomega.BeTrue())
+				gomega.Expect(len(priovousGwLRPIPs) > 0).To(gomega.BeTrue())
 				reserveErr := fakeOvn.controller.joinSwIPManager.reserveJoinLRPIPs(node1.Name, priovousGwLRPIPs)
-				gomega.Expect(reserveErr).To(gomega.HaveOccurred())
+				gomega.Expect(reserveErr).NotTo(gomega.HaveOccurred())
 				gwLRPIPs, err := fakeOvn.controller.joinSwIPManager.ensureJoinLRPIPs(node1.Name)
 				gomega.Expect(len(gwLRPIPs) != 0).To(gomega.BeTrue())
 
