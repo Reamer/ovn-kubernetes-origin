@@ -2,9 +2,10 @@ package ovn
 
 import (
 	"context"
+	"net"
+
 	"github.com/urfave/cli/v2"
 	"k8s.io/apimachinery/pkg/util/sets"
-	"net"
 
 	"github.com/ovn-org/ovn-kubernetes/go-controller/pkg/config"
 	egressfirewallfake "github.com/ovn-org/ovn-kubernetes/go-controller/pkg/crd/egressfirewall/v1/apis/clientset/versioned/fake"
