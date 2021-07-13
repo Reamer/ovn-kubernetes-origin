@@ -4,8 +4,6 @@ on:
   push:
   pull_request:
     branches: [ master ]
-  schedule:
-    - cron: '0 */12 * * *'
 
 env:
   GO_VERSION: "1.16.3"
